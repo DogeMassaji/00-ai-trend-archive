@@ -1,0 +1,152 @@
+# ============================
+# Python / Backend
+# ============================
+
+# Python 字节码
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# 虚拟环境
+venv/
+env/
+ENV/
+.venv/
+backend/venv/
+
+# 开发工具
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# 数据库
+*.db
+*.sqlite
+*.sqlite3
+backend/data/*.db
+!backend/data/.gitkeep
+
+# 日志文件
+*.log
+logs/
+backend/logs/
+
+# 环境变量
+.env
+.env.local
+.env.*.local
+backend/.env
+
+# 测试覆盖率
+htmlcov/
+.coverage
+.coverage.*
+.pytest_cache/
+.tox/
+coverage.xml
+*.cover
+
+# 分发文件
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# pyenv
+.python-version
+
+# ============================
+# Node.js / Frontend
+# ============================
+
+# 依赖
+node_modules/
+frontend/node_modules/
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# 构建输出
+frontend/dist/
+frontend/build/
+*.local
+
+# 缓存
+.cache/
+.parcel-cache/
+.vite/
+.eslintcache
+
+# 临时文件
+*.tmp
+.temp/
+.tmp/
+
+# 编辑器配置
+.vscode/settings.json
+.vscode/launch.json
+
+# ============================
+# 项目特定
+# ============================
+
+# 同步任务运行时产生的临时文件
+backend/tasks/temp/
+backend/tasks/*.lock
+
+# 导出文件
+exports/
+downloads/
+*.csv
+*.xlsx
+
+# API 密钥配置（敏感信息）
+backend/core/secrets.py
+config/secrets.yaml
+
+# 用户上传文件
+uploads/
+media/
+
+# 备份文件
+*.bak
+*.backup
+*.old
+
+# 文档构建输出
+docs/_build/
+site/
+
+# ============================
+# 操作系统
+# ============================
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Linux
+*~
+.fuse_hidden*
+.directory
+.Trash-*
+
+# ============================
+# Git
+# ============================
+*.orig
+*.rej
