@@ -80,7 +80,7 @@
 - **定时运行**：GitHub Actions (schedule, 每日 UTC 0 点)
 - **数据存储**：仓库中的 JSON 文件
 - **前端展示**：纯 HTML/CSS/JS + Chart.js (CDN)
-- **部署**：GitHub Pages (从 `main` 分支的 `/frontend` 目录或 gh-pages 分支)
+- **部署**：GitHub Pages (从 `main` 分支的 `/docs` 目录或 gh-pages 分支)
 
 > 完全不需要购买服务器或域名，白嫖 GitHub 生态。
 
@@ -97,7 +97,7 @@ ai-coding-trends/
 ├── data/
 │   ├── repos.json                 # 手工维护的仓库列表
 │   └── archive.json               # 空数组 [] 初始
-├── frontend/                          # 用于 Pages 的静态网站根目录
+├── docs/                          # 用于 Pages 的静态网站根目录
 │   ├── index.html
 │   └── style.css
 ├── README.md
