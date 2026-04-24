@@ -11,8 +11,8 @@ from datetime import datetime, timezone
 import requests
 
 REPOS_FILE = os.path.join(os.path.dirname(__file__), "..", "data", "repos.json")
-ARCHIVE_FILE = os.path.join(os.path.dirname(__file__), "..", "data", "archive.json")
-TODAY_FILE = os.path.join(os.path.dirname(__file__), "..", "data", "today.json")
+ARCHIVE_FILE = os.path.join(os.path.dirname(__file__), "..", "docs", "data", "archive.json")
+TODAY_FILE = os.path.join(os.path.dirname(__file__), "..", "docs", "data", "today.json")
 
 GITHUB_API = "https://api.github.com/repos/{}"
 HEADERS = {

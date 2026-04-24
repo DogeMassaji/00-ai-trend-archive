@@ -26,11 +26,12 @@
 │   └── workflows/
 │       └── update.yml        # 每日定时抓取任务
 ├── data/
-│   ├── repos.json            # 手动维护的仓库列表
-│   ├── archive.json          # 每日累积归档（自动生成）
-│   └── today.json            # 当日排行榜（自动生成）
-├── docs/
-│   ├── index.html            # 静态前端页面（GitHub Pages 根目录）
+│   └── repos.json            # 手动维护的仓库列表
+├── docs/                     # GitHub Pages 根目录
+│   ├── data/
+│   │   ├── archive.json      # 每日累积归档（自动生成）
+│   │   └── today.json        # 当日排行榜（自动生成）
+│   ├── index.html            # 静态前端页面
 │   └── style.css             # 样式
 ├── scripts/
 │   └── fetch.py              # 数据抓取脚本
