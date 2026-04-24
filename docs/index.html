@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GitHub AI Coding 趋势</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js"></script>
+</head>
+<body>
+  <div class="container">
+    <!-- 标题区 -->
+    <header class="site-header">
+      <div class="header-icon">⭐</div>
+      <div>
+        <h1>GitHub AI Coding 趋势</h1>
+        <p class="subtitle" id="date-label">加载中…</p>
+      </div>
+    </header>
+
+    <!-- 排行榜 -->
+    <section class="card">
+      <h2 class="section-title">今日 Star 排行榜</h2>
+      <div class="table-wrapper">
+        <table id="ranking-table">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>仓库</th>
+              <th>描述</th>
+              <th>总 Stars</th>
+              <th>今日新增</th>
+            </tr>
+          </thead>
+          <tbody id="ranking-body">
+            <tr><td colspan="5" class="loading">加载中…</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- 趋势图区 -->
+    <section class="card chart-section" id="chart-section" style="display:none">
+      <h2 class="section-title" id="chart-title">趋势图</h2>
+      <p class="chart-hint">最近 7 天每日新增 Stars</p>
+      <div class="chart-container">
+        <canvas id="trend-chart"></canvas>
+      </div>
+    </section>
+  </div>
+
+  <script>
+    const DATA_BASE = '../data';
+    let archiveData = [];
+    let trendChart = null;
+
+    // ---- 工具函数 ----
+    function fmtNum(n) {
+      if (n == null || n < 0) return '—';
+      return n.toLocaleString('en-US');
+    }
+
+    function deltaCell(delta) {
+      if (delta == null) return '<span class="delta-none">—</span>';
+      if (delta > 0) return `<span class="delta-up">+${fmtNum(delta)}</span>`;
+      if (delta < 0) return `<span class="delta-down">${fmtNum(delta)}</span>`;
+      return `<span class="delta-zero">0</span>`;
+    }
+
+    // ---- 渲染排行榜 ----
+    function renderTable(data) {
+      const tbody = document.getElementById('ranking-body');
+      tbody.innerHTML = '';
+      data.repos.forEach((repo, idx) => {
+        const tr = document.createElement('tr');
+        tr.className = 'repo-row';
+        tr.dataset.fullName = repo.full_name;
+        tr.innerHTML = `
+          <td class="rank">${idx + 1}</td>
+          <td class="repo-name">
+            <a href="https://github.com/${repo.full_name}" target="_blank" rel="noopener">
+              ${repo.full_name}
+            </a>
+          </td>
+          <td class="repo-desc">${repo.description || ''}</td>
+          <td class="stars">${fmtNum(repo.stars)}</td>
+          <td class="delta">${deltaCell(repo.delta)}</td>
+        `;
+        tr.addEventListener('click', () => showChart(repo.full_name));
+        tbody.appendChild(tr);
+      });
+    }
+
+    // ---- 渲染趋势图 ----
+    function showChart(fullName) {
+      // 高亮选中行
+      document.querySelectorAll('.repo-row').forEach(r => r.classList.remove('selected'));
+      const activeRow = document.querySelector(`.repo-row[data-full-name="${fullName}"]`);
+      if (activeRow) activeRow.classList.add('selected');
+
+      // 从归档数据中取最近 7 天
+      const recent = archiveData.slice(-7);
+      const labels = recent.map(r => r.date);
+
+      // 计算每天新增（当天 - 前一天）
+      const allDates = archiveData;
+      const deltas = recent.map((rec, i) => {
+        const idx = archiveData.indexOf(rec);
+        const todayVal = rec.repos[fullName];
+        const prevVal = idx > 0 ? archiveData[idx - 1].repos[fullName] : null;
+        if (todayVal == null || todayVal < 0) return null;
+        if (prevVal == null || prevVal < 0) return null;
+        return todayVal - prevVal;
+      });
+
+      const section = document.getElementById('chart-section');
+      section.style.display = 'block';
+      document.getElementById('chart-title').textContent = `${fullName} — 近 7 天每日新增`;
+
+      if (trendChart) trendChart.destroy();
+      const ctx = document.getElementById('trend-chart').getContext('2d');
+      trendChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+          labels,
+          datasets: [{
+            label: '每日新增 Stars',
+            data: deltas,
+            borderColor: '#2ea44f',
+            backgroundColor: 'rgba(46,164,79,0.12)',
+            pointBackgroundColor: '#2ea44f',
+            pointRadius: 5,
+            pointHoverRadius: 7,
+            fill: true,
+            tension: 0.3,
+            spanGaps: false,
+          }],
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: { display: false },
+            tooltip: {
+              callbacks: {
+                label: ctx => ctx.parsed.y == null ? '无数据' : `+${ctx.parsed.y.toLocaleString()} Stars`,
+              },
+            },
+          },
+          scales: {
+            x: {
+              grid: { color: 'rgba(255,255,255,0.06)' },
+              ticks: { color: '#8b949e' },
+            },
+            y: {
+              grid: { color: 'rgba(255,255,255,0.06)' },
+              ticks: { color: '#8b949e' },
+              beginAtZero: true,
+            },
+          },
+        },
+      });
+
+      section.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+
+    // ---- 加载数据 ----
+    async function loadData() {
+      try {
+        const [todayResp, archiveResp] = await Promise.all([
+          fetch(`${DATA_BASE}/today.json`),
+          fetch(`${DATA_BASE}/archive.json`),
+        ]);
+
+        if (!todayResp.ok) throw new Error('today.json 加载失败');
+        if (!archiveResp.ok) throw new Error('archive.json 加载失败');
+
+        const todayData = await todayResp.json();
+        archiveData = await archiveResp.json();
+
+        document.getElementById('date-label').textContent = `数据日期：${todayData.date}`;
+        renderTable(todayData);
+      } catch (err) {
+        document.getElementById('ranking-body').innerHTML =
+          `<tr><td colspan="5" class="error">⚠ 数据加载失败：${err.message}<br>请先运行 fetch.py 或手动触发 GitHub Actions。</td></tr>`;
+        document.getElementById('date-label').textContent = '暂无数据';
+      }
+    }
+
+    loadData();
+  </script>
+</body>
+</html>
