@@ -1,70 +1,76 @@
 {
-  "date": "2026-04-26",
+  "date": "2026-04-27",
   "repos": [
     {
       "full_name": "RooVetGit/Roo-Code",
       "description": "Roo Code (prev. Roo Cline) gives you a whole dev team of AI agents in your editor",
-      "stars": 23507,
-      "delta": 146
+      "stars": 23652,
+      "delta": 145
     },
     {
       "full_name": "All-Hands-AI/OpenHands",
       "description": "🙌 OpenHands: Code Less, Make More",
-      "stars": 72079,
-      "delta": 69
-    },
-    {
-      "full_name": "getcursor/cursor",
-      "description": "The AI Code Editor",
-      "stars": 32752,
-      "delta": 57
+      "stars": 72123,
+      "delta": 44
     },
     {
       "full_name": "paul-gauthier/aider",
       "description": "aider is AI pair programming in your terminal",
-      "stars": 43936,
-      "delta": 45
+      "stars": 43979,
+      "delta": 43
     },
     {
       "full_name": "cline/cline",
       "description": "Autonomous coding agent right in your IDE, capable of creating/editing files, executing commands, using the browser, and more with your permission every step of the way",
-      "stars": 60996,
-      "delta": 37
+      "stars": 61030,
+      "delta": 34
     },
     {
       "full_name": "microsoft/autogen",
       "description": "A programming framework for agentic AI PyPi: autogen-agentchat Discord: aka.ms/autogen-discord Office Hour: aka.ms/autogen-officehour",
-      "stars": 57433,
-      "delta": 30
+      "stars": 57462,
+      "delta": 29
     },
     {
       "full_name": "continuedev/continue",
       "description": "⏩ Continue is the leading open-source AI code assistant",
-      "stars": 32791,
-      "delta": 14
+      "stars": 32818,
+      "delta": 27
+    },
+    {
+      "full_name": "getcursor/cursor",
+      "description": "The AI Code Editor",
+      "stars": 32760,
+      "delta": 8
     },
     {
       "full_name": "Codium-ai/pr-agent",
       "description": "🚀 An AI-powered platform to automate pull request reviews, fix code and more",
-      "stars": 11002,
-      "delta": 10
+      "stars": 11010,
+      "delta": 8
     },
     {
       "full_name": "tabbyml/tabby",
       "description": "Self-hosted AI coding assistant and gateway",
-      "stars": 33463,
-      "delta": 3
-    },
-    {
-      "full_name": "gpt-engineer-org/gpt-engineer",
-      "description": "Specify what you want it to build, the AI asks for clarification, and then builds it",
-      "stars": 55219,
-      "delta": 0
+      "stars": 33469,
+      "delta": 6
     },
     {
       "full_name": "Pythagora-io/gpt-pilot",
       "description": "Research project to see how far GPT-4 can go to generate production-ready apps",
-      "stars": 33775,
+      "stars": 33777,
+      "delta": 2
+    },
+    {
+      "full_name": "gpt-engineer-org/gpt-engineer",
+      "description": "Specify what you want it to build, the AI asks for clarification, and then builds it",
+      "stars": 55220,
+      "delta": 1
+    },
+    {
+      "full_name": "stitionai/devika",
+      "description": "Devika is an Agentic AI Software Engineer that can understand high-level human instructions",
+      "stars": 19501,
       "delta": 0
     },
     {
@@ -72,12 +78,6 @@
       "description": "Sweep: open-source AI-powered Software Developer for small features and bug fixes",
       "stars": 7705,
       "delta": 0
-    },
-    {
-      "full_name": "stitionai/devika",
-      "description": "Devika is an Agentic AI Software Engineer that can understand high-level human instructions",
-      "stars": 19501,
-      "delta": -1
     },
     {
       "full_name": "open-interpreter/open-interpreter",
