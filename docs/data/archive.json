@@ -150,5 +150,24 @@
       "All-Hands-AI/OpenHands": 72430,
       "RooVetGit/Roo-Code": 23798
     }
+  },
+  {
+    "date": "2026-05-02",
+    "repos": {
+      "continuedev/continue": 32917,
+      "gpt-engineer-org/gpt-engineer": 55227,
+      "tabbyml/tabby": 33485,
+      "open-interpreter/open-interpreter": -1,
+      "Pythagora-io/gpt-pilot": 33776,
+      "sweepai/sweep": 7710,
+      "microsoft/autogen": 57645,
+      "Codium-ai/pr-agent": 11062,
+      "getcursor/cursor": 32808,
+      "cline/cline": 61263,
+      "paul-gauthier/aider": 44218,
+      "stitionai/devika": 19504,
+      "All-Hands-AI/OpenHands": 72483,
+      "RooVetGit/Roo-Code": 23818
+    }
   }
 ]
