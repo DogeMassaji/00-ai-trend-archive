@@ -1,83 +1,83 @@
 {
-  "date": "2026-05-03",
+  "date": "2026-05-04",
   "repos": [
     {
-      "full_name": "All-Hands-AI/OpenHands",
-      "description": "🙌 OpenHands: Code Less, Make More",
-      "stars": 72527,
-      "delta": 44
+      "full_name": "cline/cline",
+      "description": "Autonomous coding agent right in your IDE, capable of creating/editing files, executing commands, using the browser, and more with your permission every step of the way",
+      "stars": 61334,
+      "delta": 49
     },
     {
       "full_name": "paul-gauthier/aider",
       "description": "aider is AI pair programming in your terminal",
-      "stars": 44256,
-      "delta": 38
+      "stars": 44296,
+      "delta": 40
     },
     {
-      "full_name": "cline/cline",
-      "description": "Autonomous coding agent right in your IDE, capable of creating/editing files, executing commands, using the browser, and more with your permission every step of the way",
-      "stars": 61285,
-      "delta": 22
-    },
-    {
-      "full_name": "RooVetGit/Roo-Code",
-      "description": "Roo Code (prev. Roo Cline) gives you a whole dev team of AI agents in your editor",
-      "stars": 23831,
-      "delta": 13
+      "full_name": "All-Hands-AI/OpenHands",
+      "description": "🙌 OpenHands: Code Less, Make More",
+      "stars": 72564,
+      "delta": 37
     },
     {
       "full_name": "microsoft/autogen",
       "description": "A programming framework for agentic AI PyPi: autogen-agentchat Discord: aka.ms/autogen-discord Office Hour: aka.ms/autogen-officehour",
-      "stars": 57657,
-      "delta": 12
+      "stars": 57680,
+      "delta": 23
     },
     {
       "full_name": "continuedev/continue",
       "description": "⏩ Continue is the leading open-source AI code assistant",
-      "stars": 32928,
-      "delta": 11
+      "stars": 32947,
+      "delta": 19
+    },
+    {
+      "full_name": "RooVetGit/Roo-Code",
+      "description": "Roo Code (prev. Roo Cline) gives you a whole dev team of AI agents in your editor",
+      "stars": 23846,
+      "delta": 15
     },
     {
       "full_name": "Codium-ai/pr-agent",
       "description": "🚀 An AI-powered platform to automate pull request reviews, fix code and more",
-      "stars": 11066,
-      "delta": 4
-    },
-    {
-      "full_name": "getcursor/cursor",
-      "description": "The AI Code Editor",
-      "stars": 32810,
-      "delta": 2
-    },
-    {
-      "full_name": "sweepai/sweep",
-      "description": "Sweep: open-source AI-powered Software Developer for small features and bug fixes",
-      "stars": 7712,
-      "delta": 2
+      "stars": 11076,
+      "delta": 10
     },
     {
       "full_name": "tabbyml/tabby",
       "description": "Self-hosted AI coding assistant and gateway",
-      "stars": 33486,
-      "delta": 1
+      "stars": 33488,
+      "delta": 2
     },
     {
-      "full_name": "stitionai/devika",
-      "description": "Devika is an Agentic AI Software Engineer that can understand high-level human instructions",
-      "stars": 19505,
+      "full_name": "getcursor/cursor",
+      "description": "The AI Code Editor",
+      "stars": 32811,
       "delta": 1
     },
     {
       "full_name": "gpt-engineer-org/gpt-engineer",
       "description": "Specify what you want it to build, the AI asks for clarification, and then builds it",
       "stars": 55226,
+      "delta": 0
+    },
+    {
+      "full_name": "sweepai/sweep",
+      "description": "Sweep: open-source AI-powered Software Developer for small features and bug fixes",
+      "stars": 7712,
+      "delta": 0
+    },
+    {
+      "full_name": "stitionai/devika",
+      "description": "Devika is an Agentic AI Software Engineer that can understand high-level human instructions",
+      "stars": 19504,
       "delta": -1
     },
     {
       "full_name": "Pythagora-io/gpt-pilot",
       "description": "Research project to see how far GPT-4 can go to generate production-ready apps",
-      "stars": 33774,
-      "delta": -2
+      "stars": 33771,
+      "delta": -3
     },
     {
       "full_name": "open-interpreter/open-interpreter",
